@@ -71,6 +71,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *rofi[] = { "rofi", "-show", "drun", NULL };
 static const char *firefox[] = { "firefox", NULL };
+static const char *screenshot[] = { "scrot", "-s", "~/Pictures/screenshot_%Y-%m-%H-%M.png", NULL};
 static const Key keys[] = {
         /* modifier                     key        function        argument */
         { MODKEY,                       XK_space,      spawn,          {.v = rofi } },
@@ -94,11 +95,11 @@ static const Key keys[] = {
         { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
         { MODKEY,                       XK_e,      spawn,          {.v = firefox } },
         { MODKEY,                       XK_g,      togglegaps,     {0} },
-        { MODKEY|ShiftMask,             XK_g,      defaultgaps,    {0} },
+        { MODKEY|ShiftMask,             XK_g,      defaultgaps,    {0} }, 
         { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
         { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
         { 0, XF86XK_AudioMute,        spawn, SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
-
+        
 
         TAGKEYS(                        XK_1,                      0)
         TAGKEYS(                        XK_2,                      1)
