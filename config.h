@@ -96,10 +96,11 @@ static const Key keys[] = {
         { MODKEY,                       XK_e,      spawn,          {.v = firefox } },
         { MODKEY,                       XK_g,      togglegaps,     {0} },
         { MODKEY|ShiftMask,             XK_g,      defaultgaps,    {0} }, 
-        { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
-        { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
+        { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10%") },
+        { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%") },
         { 0, XF86XK_AudioMute,        spawn, SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
-        
+        { MODKEY,                       XK_o,      spawn,      {.v = screenshot } }, 
+
 
         TAGKEYS(                        XK_1,                      0)
         TAGKEYS(                        XK_2,                      1)
