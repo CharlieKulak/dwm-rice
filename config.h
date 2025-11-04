@@ -71,7 +71,10 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *rofi[] = { "rofi", "-show", "drun", NULL };
 static const char *firefox[] = { "firefox", NULL };
-static const char *screenshot[] = { "scrot", "-s", "~/Pictures/screenshot_%Y-%m-%H-%M.png", NULL};
+static const char *screenshot[] = { "scrot", "-s", "/home/charlie/Pictures/screenshot_%Y-%m-%H-%M.png", NULL};
+static const char *music[] = { "chromium", "--app=http://192.168.1.16:4533", NULL};
+static const char *writer[] = { "libreoffice", "--writer", NULL};
+static const char *discord[] = { "discord", NULL};
 static const Key keys[] = {
         /* modifier                     key        function        argument */
         { MODKEY,                       XK_space,      spawn,          {.v = rofi } },
@@ -79,10 +82,8 @@ static const Key keys[] = {
         { MODKEY,                       XK_b,      togglebar,      {0} },
         { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
         { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-        { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-        { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-        { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-        { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+        { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} }, 
+        { MODKEY,                       XK_l,      setmfact,       {.f = 0.05} }, 
         { MODKEY,                       XK_Return, zoom,           {0} },
         { MODKEY,                       XK_Tab,    view,           {0} },
         { MODKEY,                       XK_c,      killclient,     {0} },
@@ -100,6 +101,9 @@ static const Key keys[] = {
         { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%") },
         { 0, XF86XK_AudioMute,        spawn, SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
         { MODKEY,                       XK_o,      spawn,      {.v = screenshot } }, 
+        { MODKEY,                       XK_i,      spawn,      {.v = music } },
+        { MODKEY,                       XK_n,      spawn,      {.v = writer} },
+        { MODKEY,                       XK_m,      spawn,      {.v = discord} },
 
 
         TAGKEYS(                        XK_1,                      0)
@@ -112,6 +116,7 @@ static const Key keys[] = {
         TAGKEYS(                        XK_8,                      7)
         TAGKEYS(                        XK_9,                      8)
         { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
 };
 
 
